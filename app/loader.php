@@ -14,7 +14,12 @@ require PATH_CONFIG.'database.php';
 require PATH_CONFIG.'mail.php';
 require PATH_CONFIG.'routes.php';
 
+// Loading libraries
+require PATH_LIB.'utils.php';
+require PATH_LIB.'database.php';
+
 // Loading controller
 $path = substr((isset($_GET['q']) ? $_GET['q'] : ''), 0, 255);
+$path = ( substr($path,strlen($path)-1,1) == '/' ? substr($path,0,strlen($path)-1) : $path );
 $controller = (isset($config['routes'][$path]) ? $config['routes'][$path] : $config['routes']['page_not_found'] );
 require PATH_CONTROLLERS.$controller.'.php';

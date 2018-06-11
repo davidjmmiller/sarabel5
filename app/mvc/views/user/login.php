@@ -1,1 +1,1 @@
-<h1>User login</h1>
+<h1><?php echo t('login');?></h1>
