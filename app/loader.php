@@ -15,6 +15,6 @@ require PATH_CONFIG.'mail.php';
 require PATH_CONFIG.'routes.php';
 
 // Loading controller
-$path = (isset($_GET['q']) ? $_GET['q'] : '');
+$path = substr((isset($_GET['q']) ? $_GET['q'] : ''), 0, 255);
 $controller = (isset($config['routes'][$path]) ? $config['routes'][$path] : $config['routes']['page_not_found'] );
 require PATH_CONTROLLERS.$controller.'.php';
