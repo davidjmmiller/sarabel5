@@ -1,3 +1,5 @@
 <?php
 
-echo '<h1>Hola mundo</h1>';
+require PATH_VIEWS.'layouts/header.php';
+require PATH_VIEWS.'default.php';
+require PATH_VIEWS.'layouts/footer.php';

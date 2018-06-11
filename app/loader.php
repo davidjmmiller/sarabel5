@@ -18,12 +18,3 @@ require PATH_CONFIG.'routes.php';
 $path = (isset($_GET['q']) ? $_GET['q'] : '');
 $controller = (isset($config['routes'][$path]) ? $config['routes'][$path] : $config['routes']['page_not_found'] );
 require PATH_CONTROLLERS.$controller.'.php';
-
-// =============================================================================
-//                              Debug options
-// =============================================================================
-echo '<div class="container">';
-echo '<div class="row">';
-echo '<div class="col-md"><hr/>Memory comsumption: '.number_format(memory_get_usage()/1024,2).'KB</div>';
-echo '</div>';
-echo '</div>';
