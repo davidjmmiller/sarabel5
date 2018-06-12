@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 // Defining paths
 define('PATH_APP','../app/');
 define('PATH_CONFIG',PATH_APP.'config/');
