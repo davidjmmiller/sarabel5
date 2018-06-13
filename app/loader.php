@@ -20,6 +20,18 @@ require PATH_CONFIG.'routes.php';
 require PATH_LIB.'utils.php';
 require PATH_LIB.'database.php';
 
+// Setting language
+if (isset($_GET['lang'])){
+    switch ($_GET['lang']){
+        case 'en':
+        case 'es':
+            $_SESSION['lang'] = $_GET['lang'];
+            break;
+        default:
+            $_SESSION['lang'] = $config['lang_default'];
+    }
+}
+
 // Loading controller
 $path = substr((isset($_GET['q']) ? $_GET['q'] : ''), 0, 255);
 $path = ( substr($path,strlen($path)-1,1) == '/' ? substr($path,0,strlen($path)-1) : $path );
