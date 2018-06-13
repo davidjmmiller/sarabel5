@@ -12,3 +12,8 @@
 </head>
 <body>
 <div class="container">
+    <?php if (session_status_message()):?>
+        <div class="alert alert-info" role="alert">
+            <?php echo session_show_message(); ?>
+        </div>
+    <?php endif; ?>

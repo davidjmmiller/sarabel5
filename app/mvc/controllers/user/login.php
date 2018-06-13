@@ -8,6 +8,12 @@ $lang['es']['login'] = 'Acceso al sistema';
 $lang['en']['login'] = 'Login';
 $lang['es']['user_invalid'] = 'Usuario o contraseña invalido';
 $lang['en']['user_invalid'] = 'User or password invalid';
+$lang['es']['username'] = 'Usuario';
+$lang['en']['username'] = 'Username';
+$lang['es']['password'] = 'Contraseña';
+$lang['en']['password'] = 'Password';
+$lang['es']['login_success'] = 'Acceso exitoso';
+$lang['en']['password'] = 'Login successfully';
 
 if (isset($_POST["form_id"])) {
 
@@ -24,6 +30,8 @@ if (isset($_POST["form_id"])) {
         // Registering user in session
         $_SESSION['active'] = 1;
         $_SESSION['user_info'] = $result[1];
+
+        session_set_message(t('login_success'));
         redirect('user/profile');
 
     }

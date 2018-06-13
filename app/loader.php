@@ -23,5 +23,17 @@ require PATH_LIB.'database.php';
 // Loading controller
 $path = substr((isset($_GET['q']) ? $_GET['q'] : ''), 0, 255);
 $path = ( substr($path,strlen($path)-1,1) == '/' ? substr($path,0,strlen($path)-1) : $path );
-$controller = (isset($config['routes'][$path]) ? $config['routes'][$path] : $config['routes']['page_not_found'] );
+$controller = (isset($config['routes'][$path]) ? $config['routes'][$path]['controller'] : $config['routes']['page_not_found']['controller'] );
+$path = (isset($config['routes'][$path]) ? $path : 'page_not_found' );
+
+// Validating authentication
+if ($config['routes'][$path]['auth']){
+    if (isset($_SESSION['active']) && $_SESSION['active'] == 1){
+
+    }
+    else {
+        redirect('user/login');
+    }
+}
+
 require PATH_CONTROLLERS.$controller.'.php';

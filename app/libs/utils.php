@@ -22,4 +22,26 @@ function form_id(){
 
 function redirect($url){
     header('Location: /'.$url);
+    die();
+}
+
+function session_state(){
+    return (isset($_SESSION['active']) && $_SESSION['active'] == 1);
+}
+
+function session_set_message($message){
+    $_SESSION['message'] = $message;
+}
+
+function session_status_message(){
+    if (isset($_SESSION['message'])){
+        return TRUE;
+    }
+    return FALSE;
+}
+
+function session_show_message(){
+    $message = $_SESSION['message'];
+    unset($_SESSION['message']);
+    return $message;
 }
