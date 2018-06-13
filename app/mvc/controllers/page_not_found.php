@@ -1,4 +1,7 @@
 <?php
 
 header("HTTP/1.0 404 Not Found");
-echo '<h1>PAGE NOT FOUND</h1>';
+
+require PATH_VIEWS.'layouts/header.php';
+require PATH_VIEWS.'page_not_found.php';
+require PATH_VIEWS.'layouts/footer.php';
